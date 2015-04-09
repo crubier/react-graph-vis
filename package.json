@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/crubier/react-graph.git"
+    "url": "https://github.com/crubier/react-graph-vis.git"
   },
   "keywords": [
     "react-component",
