@@ -6,7 +6,8 @@ var Graph = React.createClass({
   getDefaultProps: function () {
     return {
         graph: {},
-        identifier:uuid.v4()
+        identifier:uuid.v4(),
+        style:{width:"640px",height:"480px"}
     };
   },
 
@@ -17,7 +18,7 @@ var Graph = React.createClass({
   },
 
   render: function() {
-    return React.createElement("div", {onDoubleClick: this.changeMode, id: this.props.identifier, style: {width:"100%",height:"100%"}}, this.props.identifier); 
+    return React.createElement("div", {onDoubleClick: this.changeMode, id: this.props.identifier, style: this.props.style}, this.props.identifier);
   },
 
   changeMode:function(event) {
