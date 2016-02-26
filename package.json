@@ -20,7 +20,7 @@
   "author": "Vincent Lecrubier <vincent.lecrubier@gmail.com> (http://www.vincentlecrubier.fr/)",
   "license": "MIT",
   "dependencies": {
-    "react": "^0.13.1",
+    "react": "^0.14.7",
     "uuid": "^2.0.1",
     "vis": "^3.12.0"
   }
