@@ -8,7 +8,7 @@ This package allows to render network graphs using vis.js.
 
 Rendered graphs are scrollable, zoomable, retina ready, dynamic, and switch layout on double click.
 
-![A graph rendered by vis js](http://visjs.org/images/exampleScreenshots/network/4.png)
+![A graph rendered by vis js](example.png)
 
 
     var Graph = require('react-graph-vis');
