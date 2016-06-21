@@ -5,9 +5,11 @@ const uuid = require('uuid');
 class Graph extends Component {
   constructor(props) {
     super(props);
+    const {identifier} = this.props;
     this.updateGraph = this.updateGraph.bind(this);
     this.state = {
-      hierarchicalLayout: true
+      hierarchicalLayout: true,
+      identifier : identifier ? identifier : uuid.v4()
     };
   }
 
@@ -54,14 +56,14 @@ class Graph extends Component {
   }
 
   render() {
-    return React.createElement('div', {onDoubleClick: this.changeMode.bind(this), id: this.props.identifier, style: this.props.style}, this.props.identifier);
+    const {identifier,style} = this.state;
+    return React.createElement('div', {onDoubleClick: this.changeMode.bind(this), id: identifier, style}, identifier);
   }
 }
 
 Graph.defaultProps = {
   graph: {},
-  identifier: uuid.v4(),
   style: {width: '640px', height: '480px'}
 };
 
-module.exports = Graph;
+export default Graph;
