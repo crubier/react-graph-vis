@@ -27,7 +27,7 @@ class Graph extends Component {
   }
 
   updateGraph() {
-    let container = document.getElementById(this.props.identifier);
+    let container = document.getElementById(this.state.identifier);
     let options = {
       stabilize: false,
       smoothCurves: false,
