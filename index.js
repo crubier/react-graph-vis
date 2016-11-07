@@ -56,7 +56,8 @@ class Graph extends Component {
   }
 
   render() {
-    const {identifier,style} = this.state;
+    const {identifier} = this.state;
+    const {style} = this.props;
     return React.createElement('div', {onDoubleClick: this.changeMode.bind(this), id: identifier, style}, identifier);
   }
 }
