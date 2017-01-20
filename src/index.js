@@ -9,7 +9,7 @@ class Graph extends Component {
     this.updateGraph = this.updateGraph.bind(this);
     this.state = {
       hierarchicalLayout: true,
-      identifier : identifier ? identifier : uuid.v4()
+      identifier : identifier !== undefined ? identifier : uuid.v4()
     };
   }
 
