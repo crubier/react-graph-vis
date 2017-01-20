@@ -2,9 +2,11 @@
   "name": "react-graph-vis",
   "version": "0.0.4",
   "description": "A react component to render nice graphs using vis.js",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/babel -d lib/ src/",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
