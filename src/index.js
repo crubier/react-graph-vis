@@ -1,4 +1,6 @@
 import {default as React, Component} from 'react';
+import defaultsDeep from 'lodash/fp/defaultsDeep';
+
 const vis = require('vis');
 const uuid = require('uuid');
 
@@ -8,7 +10,6 @@ class Graph extends Component {
     const {identifier} = this.props;
     this.updateGraph = this.updateGraph.bind(this);
     this.state = {
-      hierarchicalLayout: true,
       identifier : identifier !== undefined ? identifier : uuid.v4()
     };
   }
@@ -21,50 +22,49 @@ class Graph extends Component {
     this.updateGraph();
   }
 
-  changeMode(event) {
-    this.setState({hierarchicalLayout: !this.state.hierarchicalLayout});
-    this.updateGraph();
-  }
-
   updateGraph() {
     let container = document.getElementById(this.state.identifier);
-    let options = {
-      stabilize: false,
-      smoothCurves: false,
+    let defaultOptions = {
+      autoResize: false,
       edges: {
+        smooth: false,
         color: '#000000',
         width: 0.5,
-        arrowScaleFactor: 0.5,
-        style: 'arrow'
+        arrows: {
+          to: {
+            enabled: true,
+            scaleFactor: 0.5
+          }
+        }   
       }
     };
-
-    if (this.state.hierarchicalLayout) {
-      options.hierarchicalLayout = {
-        enabled: true,
-        direction: 'UD',
-        levelSeparation: 100,
-        nodeSpacing: 1
-      };
-    } else {
-      options.hierarchicalLayout = {
-        enabled: false
-      };
+    // merge user provied options with our default ones
+    let options = defaultsDeep(defaultOptions, this.props.options);
+    console.log("new graph created hey");
+    this.Network = new vis.Network(container, this.props.graph, options);
+    // Add user provied events to network
+    let events = this.props.events || {};
+    for (let eventName of Object.keys(events)) {
+      this.Network.on(eventName, events[eventName]);
     }
-
-    new vis.Network(container, this.props.graph, options);
   }
 
   render() {
-    const {identifier} = this.state;
-    const {style} = this.props;
-    return React.createElement('div', {onDoubleClick: this.changeMode.bind(this), id: identifier, style}, identifier);
+    const { identifier } = this.state;
+    const { style } = this.props;
+    return React.createElement('div', 
+        {
+          id: identifier, 
+          style
+        }, 
+        identifier
+      );
   }
 }
 
 Graph.defaultProps = {
   graph: {},
-  style: {width: '640px', height: '480px'}
+  style: { width: '640px', height: '480px' }
 };
 
 export default Graph;
