@@ -50,9 +50,10 @@ class Graph extends Component {
         }   
       }
     };
+
     // merge user provied options with our default ones
     let options = defaultsDeep(defaultOptions, this.props.options);
-    console.log("new graph created hey");
+
     this.Network = new vis.Network(container, this.props.graph, options);
     // Add user provied events to network
     let events = this.props.events || {};
