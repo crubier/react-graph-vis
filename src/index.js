@@ -1,5 +1,7 @@
 import {default as React, Component} from 'react';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
+import isEqual from 'lodash/isEqual';
+
 
 const vis = require('vis');
 const uuid = require('uuid');
@@ -16,6 +18,13 @@ class Graph extends Component {
 
   componentDidMount() {
     this.updateGraph();
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    let nodesChange = !isEqual(this.props.graph.nodes, nextProps.graph.nodes);
+    let edgesChange = !isEqual(this.props.graph.edges, nextProps.graph.edges);
+    let optionsChange = !isEqual(this.props.options, nextProps.options);
+    return nodesChange || edgesChange || optionsChange;
   }
 
   componentDidUpdate() {
