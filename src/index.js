@@ -34,6 +34,9 @@ class Graph extends Component {
   updateGraph() {
     let container = document.getElementById(this.state.identifier);
     let defaultOptions = {
+      physics: {
+        stabilization: false
+      },
       autoResize: false,
       edges: {
         smooth: false,
