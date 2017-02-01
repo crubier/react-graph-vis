@@ -1,8 +1,8 @@
 {
   "name": "react-graph-vis-gh-pages",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "A react component to render nice graphs using vis.js",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack"
