@@ -1,4 +1,4 @@
-import Graph from './react-graph-vis'
+import Graph from 'react-graph-vis'
 
 // import Graph from 'react-graph-vis'
 
@@ -44,11 +44,14 @@ render(
   <div>
     <h1>React graph vis</h1>
     <p><a href="https://github.com/crubier/react-graph-vis">Github</a> - <a href="https://www.npmjs.com/package/react-graph-vis">NPM</a></p>
+    <p><a href="https://github.com/crubier/react-graph-vis/tree/master/example">Source of this page</a></p>
     <p>A React component to display beautiful network graphs using vis.js</p>
     <p>Make sure to visit <a href="http://visjs.org">visjs.org</a> for more info.</p>
     <p>This package allows to render network graphs using vis.js.</p>
     <p>Rendered graphs are scrollable, zoomable, retina ready, dynamic, and switch layout on double click.</p>
+
     <Graph graph={graph} options={options} events={events} />
+
   </div>,
   document.getElementById("root")
 );
