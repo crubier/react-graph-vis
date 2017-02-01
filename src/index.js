@@ -1,10 +1,8 @@
 import {default as React, Component} from 'react';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import isEqual from 'lodash/isEqual';
-
-
-const vis = require('vis');
-const uuid = require('uuid');
+import vis from 'vis';
+import uuid from 'uuid';
 
 class Graph extends Component {
   constructor(props) {
@@ -47,7 +45,7 @@ class Graph extends Component {
             enabled: true,
             scaleFactor: 0.5
           }
-        }   
+        }
       }
     };
 
@@ -65,11 +63,11 @@ class Graph extends Component {
   render() {
     const { identifier } = this.state;
     const { style } = this.props;
-    return React.createElement('div', 
+    return React.createElement('div',
         {
-          id: identifier, 
+          id: identifier,
           style
-        }, 
+        },
         identifier
       );
   }
