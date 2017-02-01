@@ -2,6 +2,8 @@
 
 A React component to display beautiful network graphs using vis.js
 
+Show, don't tell: [Demo](http://crubier.github.io/react-graph-vis/)
+
 Make sure to visit [visjs.org](http://visjs.org) for more info.
 
 Rendered graphs are scrollable, zoomable, retina ready, dynamic, and switch layout on double click.
@@ -10,7 +12,7 @@ Rendered graphs are scrollable, zoomable, retina ready, dynamic, and switch layo
 
 Due to the imperative nature of vis.js, updating graph properties causes complete redraw of graph and completely porting it to React is a big project itself!
 
-This component takes 3 vis.js configuration objects as properties:  
+This component takes three vis.js configuration objects as properties:  
 
 - graph: contains two arrays { edges, nodes }
 - options: normal vis.js options as described [here](http://visjs.org/docs/network/#options)
@@ -55,4 +57,4 @@ var events = {
 React.render(<Graph graph={graph} options={options} events={events} />, document.body);
 ```
 
-Check out the example in the `example` folder. 
+You can also check out the demo in the [`example`](https://github.com/crubier/react-graph-vis/tree/master/example) folder.
