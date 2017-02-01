@@ -54,3 +54,5 @@ var events = {
 
 React.render(<Graph graph={graph} options={options} events={events} />, document.body);
 ```
+
+Check out the example in the `example` folder. 
