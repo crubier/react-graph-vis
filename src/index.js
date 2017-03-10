@@ -53,6 +53,10 @@ class Graph extends Component {
     let options = defaultsDeep(defaultOptions, this.props.options);
 
     this.Network = new vis.Network(container, this.props.graph, options);
+
+    if (this.props.getNetwork)
+      this.props.getNetwork(this.Network)
+
     // Add user provied events to network
     let events = this.props.events || {};
     for (let eventName of Object.keys(events)) {
@@ -75,6 +79,7 @@ class Graph extends Component {
 
 Graph.defaultProps = {
   graph: {},
+  getNetwork: React.PropTypes.function,
   style: { width: '640px', height: '480px' }
 };
 
