@@ -1,6 +1,6 @@
 {
   "name": "react-graph-vis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A react component to render nice graphs using vis.js",
   "main": "lib/index.js",
   "scripts": {
