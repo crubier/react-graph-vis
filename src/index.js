@@ -54,8 +54,9 @@ class Graph extends Component {
 
     this.Network = new vis.Network(container, this.props.graph, options);
 
-    if (this.props.getNetwork)
+    if (this.props.getNetwork) {
       this.props.getNetwork(this.Network)
+    }
 
     // Add user provied events to network
     let events = this.props.events || {};
