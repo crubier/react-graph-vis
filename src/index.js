@@ -8,18 +8,18 @@ import uuid from 'uuid';
 class Graph extends Component {
   constructor(props) {
     super(props);
-    const {identifier, graph} = this.props;
+    const {identifier} = props;
     this.updateGraph = this.updateGraph.bind(this);
-    this.edges = new vis.DataSet();
-    this.edges.add(graph.edges);
-    this.nodes = new vis.DataSet();
-    this.edges.add(graph.nodes);
     this.state = {
       identifier : identifier !== undefined ? identifier : uuid.v4()
     };
   }
 
   componentDidMount() {
+    this.edges = new vis.DataSet();
+    this.edges.add(this.props.graph.edges);
+    this.nodes = new vis.DataSet();
+    this.edges.add(this.props.graph.nodes);
     this.updateGraph();
   }
 
@@ -29,18 +29,24 @@ class Graph extends Component {
     let optionsChange = !isEqual(this.props.options, nextProps.options);
     
     if (nodesChange) {
-      const nodesRemoved = differenceWith(this.props.graph.nodes, nextProps.graph.nodes, isEqual)
-      const nodesAdded = differenceWith(nextProps.graph.nodes, this.props.graph.nodes, isEqual)
-      this.patchNodes({nodesRemoved, nodesAdded});
+      const idIsEqual = (n1, n2) => n1.id === n2.id;
+      const nodesRemoved = differenceWith(this.props.graph.nodes, nextProps.graph.nodes, idIsEqual);
+      const nodesAdded = differenceWith(nextProps.graph.nodes, this.props.graph.nodes, idIsEqual);
+      const nodesChanged = differenceWith(differenceWith(nextProps.graph.nodes, this.props.graph.nodes, isEqual), nodesAdded);
+      this.patchNodes({nodesRemoved, nodesAdded, nodesChanged});
     }
     
     if (edgesChange) {
-      const edgesRemoved = differenceWith(this.props.graph.edges, nextProps.graph.edges, isEqual)
-      const edgesAdded = differenceWith(nextProps.graph.edges, this.props.graph.edges, isEqual)
+      const edgesRemoved = differenceWith(this.props.graph.edges, nextProps.graph.edges, isEqual);
+      const edgesAdded = differenceWith(nextProps.graph.edges, this.props.graph.edges, isEqual);
       this.patchEdges({edgesRemoved, edgesAdded});
     }
     
-    return optionsChange;
+    if (optionsChange) {
+      this.Network.setOptions(nextProps.options);
+    }
+    
+    return false;
   }
 
   componentDidUpdate() {
@@ -48,13 +54,14 @@ class Graph extends Component {
   }
   
   patchEdges({edgesRemoved, edgesAdded}) {
-    this.edges.add(edgesAdded);
     this.edges.remove(edgesRemoved);
+    this.edges.add(edgesAdded);
   }
   
-  patchNodes({nodesRemoved, nodesAdded}) {
-    this.nodes.add(nodesAdded);
+  patchNodes({nodesRemoved, nodesAdded, nodesChanged}) {
     this.nodes.remove(nodesRemoved);
+    this.nodes.add(nodesAdded);
+    this.nodes.update(nodesChanged);
   }
 
   updateGraph() {
