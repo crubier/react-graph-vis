@@ -27,6 +27,7 @@ class Graph extends Component {
     let nodesChange = !isEqual(this.props.graph.nodes, nextProps.graph.nodes);
     let edgesChange = !isEqual(this.props.graph.edges, nextProps.graph.edges);
     let optionsChange = !isEqual(this.props.options, nextProps.options);
+    let eventsChange = !isEqual(this.props.events, nextProps.events);
     
     if (nodesChange) {
       const idIsEqual = (n1, n2) => n1.id === n2.id;
@@ -44,6 +45,16 @@ class Graph extends Component {
     
     if (optionsChange) {
       this.Network.setOptions(nextProps.options);
+    }
+
+    if (eventsChange) {
+      let events = this.props.events || {}
+      for (let eventName of Object.keys(events))
+        this.Network.off (eventName, events[eventName])
+
+      events = nextProps.events || {}
+      for (let eventName of Object.keys(events))
+        this.Network.on (eventName, events[eventName])
     }
     
     return false;
