@@ -19,7 +19,7 @@ class Graph extends Component {
     this.edges = new vis.DataSet();
     this.edges.add(this.props.graph.edges);
     this.nodes = new vis.DataSet();
-    this.edges.add(this.props.graph.nodes);
+    this.nodes.add(this.props.graph.nodes);
     this.updateGraph();
   }
 
