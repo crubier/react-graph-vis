@@ -4,6 +4,7 @@ import isEqual from 'lodash/isEqual';
 import differenceWith from 'lodash/differenceWith';
 import vis from 'vis';
 import uuid from 'uuid';
+import PropTypes from 'prop-types';
 
 class Graph extends Component {
   constructor(props) {
@@ -137,8 +138,12 @@ class Graph extends Component {
 
 Graph.defaultProps = {
   graph: {},
-  getNetwork: React.PropTypes.function,
   style: { width: '640px', height: '480px' }
+};
+Graph.propTypes = {
+  graph: PropTypes.object,
+  style: PropTypes.object,
+  getNetwork: PropTypes.func
 };
 
 export default Graph;
