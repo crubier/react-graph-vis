@@ -147,7 +147,8 @@ Graph.defaultProps = {
 Graph.propTypes = {
   graph: PropTypes.object,
   style: PropTypes.object,
-  getNetwork: PropTypes.func
+  getNetwork: PropTypes.func,
+  getNodes: PropTypes.func,
 };
 
 export default Graph;
