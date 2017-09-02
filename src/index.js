@@ -115,6 +115,10 @@ class Graph extends Component {
     if (this.props.getNetwork) {
       this.props.getNetwork(this.Network)
     }
+    
+    if (this.props.getNodes) {
+      this.props.getNodes(this.nodes)
+    }
 
     // Add user provied events to network
     let events = this.props.events || {};
