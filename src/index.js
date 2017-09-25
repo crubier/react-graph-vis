@@ -115,6 +115,10 @@ class Graph extends Component {
     if (this.props.getNetwork) {
       this.props.getNetwork(this.Network)
     }
+    
+    if (this.props.getNodes) {
+      this.props.getNodes(this.nodes)
+    }
 
     // Add user provied events to network
     let events = this.props.events || {};
@@ -143,7 +147,8 @@ Graph.defaultProps = {
 Graph.propTypes = {
   graph: PropTypes.object,
   style: PropTypes.object,
-  getNetwork: PropTypes.func
+  getNetwork: PropTypes.func,
+  getNodes: PropTypes.func,
 };
 
 export default Graph;
