@@ -156,7 +156,7 @@ Graph.propTypes = {
   style: PropTypes.object,
   getNetwork: PropTypes.func,
   getNodes: PropTypes.func,
-  getEdges: PropTyes.func,  
+  getEdges: PropTypes.func,  
 };
 
 export default Graph;
