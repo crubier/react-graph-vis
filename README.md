@@ -21,9 +21,9 @@ This component takes three vis.js configuration objects as properties:
 # Usage
 
 ```javascript
-var Graph = require('react-graph-vis');
+import Graph from 'react-graph-vis';
 
-var graph = {
+const graph = {
   nodes: [
       {id: 1, label: 'Node 1'},
       {id: 2, label: 'Node 2'},
@@ -39,7 +39,7 @@ var graph = {
     ]
 };
 
-var options = {
+const options = {
     layout: {
         hierarchical: true
     },
@@ -48,7 +48,7 @@ var options = {
     }
 };
 
-var events = {
+const events = {
     select: function(event) {
         var { nodes, edges } = event;
     }
