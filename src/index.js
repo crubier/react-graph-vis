@@ -48,7 +48,7 @@ class Graph extends Component {
         differenceWith(nextProps.graph.edges, this.props.graph.edges, isEqual),
         edgesAdded
       );
-      this.patchEdges({ edgesRemoved, edgesAdded , edgesChanged });
+      this.patchEdges({ edgesRemoved, edgesAdded, edgesChanged });
     }
 
     if (optionsChange) {
@@ -66,11 +66,7 @@ class Graph extends Component {
     return false;
   }
 
-  componentDidUpdate() {
-    this.updateGraph();
-  }
-
-  patchEdges({ edgesRemoved, edgesAdded }) {
+  patchEdges({ edgesRemoved, edgesAdded, edgesChanged }) {
     this.edges.remove(edgesRemoved);
     this.edges.add(edgesAdded);
     this.edges.update(edgesChanged);
@@ -125,7 +121,7 @@ class Graph extends Component {
     if (this.props.getEdges) {
       this.props.getEdges(this.edges);
     }
-      
+
     // Add user provied events to network
     let events = this.props.events || {};
     for (let eventName of Object.keys(events)) {
@@ -156,7 +152,7 @@ Graph.propTypes = {
   style: PropTypes.object,
   getNetwork: PropTypes.func,
   getNodes: PropTypes.func,
-  getEdges: PropTypes.func,  
+  getEdges: PropTypes.func,
 };
 
 export default Graph;

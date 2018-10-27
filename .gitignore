@@ -52,3 +52,5 @@ node_modules/*
 .coverrun
 
 .texpadtmp
+
+.vscode/*
