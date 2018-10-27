@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    index: resolve(__dirname,'./src/index.js'),
+    index: resolve(__dirname, './src/index.js'),
     vendor: ['react', 'react-dom']
   },
 
@@ -31,6 +31,7 @@ module.exports = {
     ],
   },
 
+  // devtool: "source-map",
 
   plugins: [
 
@@ -54,10 +55,10 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-        template: resolve(__dirname, './src/index.html'),
-        filename: 'index.html',
-        inject: 'body',
-      }),
+      template: resolve(__dirname, './src/index.html'),
+      filename: 'index.html',
+      inject: 'body',
+    }),
 
   ]
 }
