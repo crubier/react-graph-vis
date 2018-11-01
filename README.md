@@ -20,22 +20,22 @@ This component takes three vis.js configuration objects as properties:
 
 # Usage
 
-```javascript
+```jsx
 import Graph from 'react-graph-vis';
 
 const graph = {
-  nodes: [
-      {id: 1, label: 'Node 1'},
-      {id: 2, label: 'Node 2'},
-      {id: 3, label: 'Node 3'},
-      {id: 4, label: 'Node 4'},
-      {id: 5, label: 'Node 5'}
+    nodes: [
+        { id: 1, label: 'Node 1' },
+        { id: 2, label: 'Node 2' },
+        { id: 3, label: 'Node 3' },
+        { id: 4, label: 'Node 4' },
+        { id: 5, label: 'Node 5' }
     ],
-  edges: [
-      {from: 1, to: 2},
-      {from: 1, to: 3},
-      {from: 2, to: 4},
-      {from: 2, to: 5}
+    edges: [
+        { from: 1, to: 2 },
+        { from: 1, to: 3 },
+        { from: 2, to: 4 },
+        { from: 2, to: 5 }
     ]
 };
 
@@ -49,12 +49,12 @@ const options = {
 };
 
 const events = {
-    select: function(event) {
+    select: function (event) {
         var { nodes, edges } = event;
     }
-}
+};
 
-React.render(<Graph graph={graph} options={options} events={events} />, document.body);
+<Graph graph={graph} options={options} events={events} />
 ```
 
 You can also check out the demo in the [`example`](https://github.com/crubier/react-graph-vis/tree/master/example) folder.
