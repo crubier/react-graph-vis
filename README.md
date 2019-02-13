@@ -54,7 +54,9 @@ const events = {
     }
 }
 
-React.render(<Graph graph={graph} options={options} events={events} />, document.body);
+React.render(<Graph graph={graph} options={options} events={events} getNetwork={ network =>{
+//  if you want access to vis.js network api you can set the state in a parent component using this property
+} } />, document.body);
 ```
 
 You can also check out the demo in the [`example`](https://github.com/crubier/react-graph-vis/tree/master/example) folder.
