@@ -70,7 +70,7 @@ class Graph extends Component {
     this.updateGraph();
   }
 
-  patchEdges({ edgesRemoved, edgesAdded }) {
+  patchEdges({ edgesRemoved, edgesAdded, edgesChanged }) {
     this.edges.remove(edgesRemoved);
     this.edges.add(edgesAdded);
     this.edges.update(edgesChanged);
