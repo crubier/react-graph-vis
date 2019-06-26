@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import defaultsDeep from "lodash/fp/defaultsDeep";
 import isEqual from "lodash/isEqual";
 import differenceWith from "lodash/differenceWith";
-import vis from "vis";
+import vis from "visjs-network";
 import uuid from "uuid";
 import PropTypes from "prop-types";
 
@@ -70,7 +70,7 @@ class Graph extends Component {
     this.updateGraph();
   }
 
-  patchEdges({ edgesRemoved, edgesAdded }) {
+  patchEdges({ edgesRemoved, edgesAdded, edgesChanged }) {
     this.edges.remove(edgesRemoved);
     this.edges.add(edgesAdded);
     this.edges.update(edgesChanged);
