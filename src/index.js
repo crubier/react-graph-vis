@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import defaultsDeep from "lodash/fp/defaultsDeep";
 import isEqual from "lodash/isEqual";
 import differenceWith from "lodash/differenceWith";
-import vis from "visjs-network";
+import vis from "vis-network";
 import uuid from "uuid";
 import PropTypes from "prop-types";
 
@@ -125,7 +125,7 @@ class Graph extends Component {
     if (this.props.getEdges) {
       this.props.getEdges(this.edges);
     }
-      
+
     // Add user provied events to network
     let events = this.props.events || {};
     for (let eventName of Object.keys(events)) {
@@ -156,7 +156,7 @@ Graph.propTypes = {
   style: PropTypes.object,
   getNetwork: PropTypes.func,
   getNodes: PropTypes.func,
-  getEdges: PropTypes.func,  
+  getEdges: PropTypes.func,
 };
 
 export default Graph;
