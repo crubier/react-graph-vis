@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/babel -d lib/ src/",
+    "build": "babel -d lib/ src/",
     "watch": "babel --watch -d lib/ src/",
     "prepublish": "npm run build"
   },
