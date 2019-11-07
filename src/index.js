@@ -48,7 +48,7 @@ class Graph extends Component {
         differenceWith(nextProps.graph.edges, this.props.graph.edges, isEqual),
         edgesAdded
       );
-      this.patchEdges({ edgesRemoved, edgesAdded , edgesChanged });
+      this.patchEdges({ edgesRemoved, edgesAdded, edgesChanged });
     }
 
     if (optionsChange) {
@@ -83,7 +83,7 @@ class Graph extends Component {
   }
 
   updateGraph() {
-    let container = document.getElementById(this.state.identifier);
+    this.container = React.createRef();
     let defaultOptions = {
       physics: {
         stabilization: false
@@ -106,7 +106,7 @@ class Graph extends Component {
     let options = defaultsDeep(defaultOptions, this.props.options);
 
     this.Network = new vis.Network(
-      container,
+      this.container.current,
       Object.assign({}, this.props.graph, {
         edges: this.edges,
         nodes: this.nodes
@@ -140,6 +140,7 @@ class Graph extends Component {
       "div",
       {
         id: identifier,
+        ref: this.container,
         style
       },
       identifier
