@@ -14,6 +14,7 @@ class Graph extends Component {
     this.state = {
       identifier: identifier !== undefined ? identifier : uuid.v4()
     };
+    this.container = React.createRef();
   }
 
   componentDidMount() {
@@ -83,7 +84,6 @@ class Graph extends Component {
   }
 
   updateGraph() {
-    this.container = React.createRef();
     let defaultOptions = {
       physics: {
         stabilization: false
