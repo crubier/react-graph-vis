@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import defaultsDeep from "lodash/fp/defaultsDeep";
 import isEqual from "lodash/isEqual";
 import differenceWith from "lodash/differenceWith";
-import {Network} from "vis-network";
+import {Network} from "vis-network/peer/esm/vis-network";
 import {DataSet} from "vis-data";
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from "prop-types";
