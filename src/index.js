@@ -3,7 +3,7 @@ import defaultsDeep from "lodash/fp/defaultsDeep";
 import isEqual from "lodash/isEqual";
 import differenceWith from "lodash/differenceWith";
 import vis from "vis-network";
-import uuid from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 import PropTypes from "prop-types";
 
 class Graph extends Component {
@@ -12,7 +12,7 @@ class Graph extends Component {
     const { identifier } = props;
     this.updateGraph = this.updateGraph.bind(this);
     this.state = {
-      identifier: identifier !== undefined ? identifier : uuid.v4()
+      identifier: identifier !== undefined ? identifier : uuidv4()
     };
     this.container = React.createRef();
   }
