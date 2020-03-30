@@ -35,7 +35,7 @@
     "timsort": "^0.3.0",
     "uuid": "^7.0.2",
     "vis-data": "^6.5.1",
-    "vis-network": "^7.4.2",
+    "vis-network": "^7.3.6",
     "vis-util": "^4.0.0"
   },
   "devDependencies": {
