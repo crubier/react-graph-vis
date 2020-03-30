@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import defaultsDeep from "lodash/fp/defaultsDeep";
 import isEqual from "lodash/isEqual";
 import differenceWith from "lodash/differenceWith";
-import { DataSet, Network } from "vis-network";
+import vis from "vis-network";
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from "prop-types";
 
@@ -18,9 +18,9 @@ class Graph extends Component {
   }
 
   componentDidMount() {
-    this.edges = new DataSet();
+    this.edges = new vis.DataSet();
     this.edges.add(this.props.graph.edges);
-    this.nodes = new DataSet();
+    this.nodes = new vis.DataSet();
     this.nodes.add(this.props.graph.nodes);
     this.updateGraph();
   }
@@ -105,7 +105,7 @@ class Graph extends Component {
     // merge user provied options with our default ones
     let options = defaultsDeep(defaultOptions, this.props.options);
 
-    this.Network = new Network(
+    this.Network = new vis.Network(
       this.container.current,
       Object.assign({}, this.props.graph, {
         edges: this.edges,
