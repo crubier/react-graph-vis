@@ -1,6 +1,6 @@
 {
   "name": "react-graph-vis",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A react component to render nice graphs using vis.js",
   "main": "lib/index.js",
   "scripts": {
@@ -29,7 +29,8 @@
     "lodash": "^4.17.15",
     "prop-types": "^15.5.10",
     "uuid": "^2.0.1",
-    "vis-network": "^5.1.1"
+    "vis-data": "^7.1.2",
+    "vis-network": "^9.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
