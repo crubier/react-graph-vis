@@ -1,6 +1,6 @@
 {
   "name": "react-graph-vis",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A react component to render nice graphs using vis.js",
   "main": "lib/index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "network",
     "jsx"
   ],
-  "author": "Vincent Lecrubier <vincent.lecrubier@gmail.com> (http://www.vincentlecrubier.fr/)",
+  "author": "Vincent Lecrubier <vincent.lecrubier@gmail.com> (https://crubier.github.io/)",
   "license": "MIT",
   "peerDependencies": {
     "react": "*"
