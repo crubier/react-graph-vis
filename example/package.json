@@ -21,9 +21,9 @@
     "babel-preset-env": "^1.1.8",
     "babel-preset-stage-3": "^6.22.0",
     "html-webpack-plugin": "^2.28.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-graph-vis": "^1.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-graph-vis": "^1.0.6",
     "webpack": "^2.2.1",
     "babel-preset-react": "^6.22.0"
   }
