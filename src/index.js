@@ -2,10 +2,39 @@ import React, { Component } from "react";
 import defaultsDeep from "lodash/fp/defaultsDeep";
 import isEqual from "lodash/isEqual";
 import differenceWith from "lodash/differenceWith";
+import intersectionWith from "lodash/intersectionWith";
 import { DataSet } from "vis-data";
 import { Network } from "vis-network";
 import uuid from "uuid";
 import PropTypes from "prop-types";
+
+const diff = (current, next, field = "id") => {
+  // consider caching this value between updates
+  const nextIds = new Set(next.map((item) => item[field]));
+  const removed = current.filter((item) => !nextIds.has(item[field]));
+
+  const unchanged = intersectionWith(next, current, isEqual);
+
+  const updated = differenceWith(
+    intersectionWith(next, current, (a, b) => a[field] === b[field]),
+    unchanged,
+    isEqual
+  );
+
+  const added = differenceWith(
+    differenceWith(next, current, isEqual),
+    updated,
+    isEqual
+  );
+
+  return {
+    removed,
+    unchanged,
+    updated,
+    added,
+  };
+};
+
 
 class Graph extends Component {
   constructor(props) {
@@ -44,12 +73,12 @@ class Graph extends Component {
     }
 
     if (edgesChange) {
-      const edgesRemoved = differenceWith(this.props.graph.edges, nextProps.graph.edges, isEqual);
-      const edgesAdded = differenceWith(nextProps.graph.edges, this.props.graph.edges, isEqual);
-      const edgesChanged = differenceWith(
-        differenceWith(nextProps.graph.edges, this.props.graph.edges, isEqual),
-        edgesAdded
-      );
+      const {
+        removed: edgesRemoved,
+        added: edgesAdded,
+        updated: edgesChanged,
+      } = diff(this.props.graph.edges, nextProps.graph.edges);
+
       this.patchEdges({ edgesRemoved, edgesAdded, edgesChanged });
     }
 
