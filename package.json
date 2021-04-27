@@ -33,6 +33,8 @@
     "vis-network": "^9.0.0"
   },
   "devDependencies": {
+    "@types/react": "^17.0.4",
+    "@types/vis": "^4.21.21",
     "babel-cli": "^6.22.2",
     "babel-preset-env": "^1.1.8",
     "babel-preset-stage-3": "^6.22.0"
