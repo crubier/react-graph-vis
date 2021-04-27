@@ -48,10 +48,18 @@ class Graph extends Component {
   }
 
   componentDidMount() {
-    this.edges = new DataSet();
-    this.edges.add(this.props.graph.edges);
-    this.nodes = new DataSet();
-    this.nodes.add(this.props.graph.nodes);
+    if (this.props.graph.edges instanceof DataSet) {
+      this.edges = this.props.graph.edges
+    } else {
+      this.edges = new DataSet();
+      this.edges.add(this.props.graph.edges);
+    }
+    if (this.props.graph.edges instanceof DataSet) {
+      this.nodes = this.props.graph.nodes
+    } else {
+      this.edges = new DataSet();
+      this.nodes.add(this.props.graph.nodes);
+    }
     this.updateGraph();
   }
 
