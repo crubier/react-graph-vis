@@ -3,6 +3,7 @@
   "version": "1.0.7",
   "description": "A react component to render nice graphs using vis.js",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel -d lib/ src/",
