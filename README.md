@@ -14,7 +14,7 @@ Due to the imperative nature of vis.js, updating graph properties causes complet
 
 This component takes three vis.js configuration objects as properties:  
 
-- graph: contains two arrays { edges, nodes }
+- graph: contains two arrays or `DataSets`{ edges, nodes }
 - options: normal vis.js options as described [here](http://visjs.org/docs/network/#options)
 - events: an object that has [event name](http://visjs.org/docs/network/#Events) as keys and their callback as values
 
