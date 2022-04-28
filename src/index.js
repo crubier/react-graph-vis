@@ -55,6 +55,10 @@ class Graph extends Component {
     this.updateGraph();
   }
 
+  componentWillUnmount() {
+    this.destroyGraph();
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     let nodesChange = !isEqual(this.props.graph.nodes, nextProps.graph.nodes);
     let edgesChange = !isEqual(this.props.graph.edges, nextProps.graph.edges);
@@ -111,6 +115,10 @@ class Graph extends Component {
     this.nodes.remove(nodesRemoved);
     this.nodes.add(nodesAdded);
     this.nodes.update(nodesChanged);
+  }
+
+  destroyGraph() {
+    if (this.Network) this.Network.destroy();
   }
 
   updateGraph() {
