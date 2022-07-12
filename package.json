@@ -29,15 +29,19 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "prop-types": "^15.5.10",
-    "uuid": "^2.0.1",
+    "uuid": "^8.3.2",
     "vis-data": "^7.1.2",
-    "vis-network": "^9.0.0"
+    "vis-network": "^9.1.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "@types/react": "^17.0.4",
-    "@types/vis": "^4.21.21",
-    "babel-cli": "^6.22.2",
-    "babel-preset-env": "^1.1.8",
-    "babel-preset-stage-3": "^6.22.0"
+    "@types/vis": "^4.21.21"
   }
 }
