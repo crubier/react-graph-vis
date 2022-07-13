@@ -6,6 +6,7 @@ import intersectionWith from "lodash/intersectionWith";
 import { DataSet } from "vis-data";
 import { Network } from "vis-network";
 import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
 
 const diff = (current, next, field = "id") => {
@@ -42,7 +43,7 @@ class Graph extends Component {
     const { identifier } = props;
     this.updateGraph = this.updateGraph.bind(this);
     this.state = {
-      identifier: identifier !== undefined ? identifier : uuid.v4()
+      identifier: identifier !== undefined ? identifier : uuidv4()
     };
     this.container = React.createRef();
   }
